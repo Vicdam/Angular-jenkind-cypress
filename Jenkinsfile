@@ -1,8 +1,6 @@
 pipeline{
 
-    agent {
-    docker { image 'cypress/base:latest'}
-  }
+    agent any
 
     tools {nodejs "node"}
 
@@ -12,10 +10,9 @@ pipeline{
     }
     
     stages{
-        stage('Install dependencies'){
+        stage('Installing Dependencies'){
             steps{
-               sh 'npm i'
-               sh 'npm install cypress --save-dev'
+                sh "npm i"
             }
         }
         stage('Building'){
